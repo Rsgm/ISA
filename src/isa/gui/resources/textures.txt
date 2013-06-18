@@ -1,0 +1,32 @@
+textures.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+act hidden
+  rotate: false
+  xy: 2, 2
+  size: 850, 1100
+  orig: 850, 1100
+  offset: 0, 0
+  index: -1
+act
+  rotate: false
+  xy: 854, 2
+  size: 850, 1100
+  orig: 850, 1100
+  offset: 0, 0
+  index: -1
+cork background
+  rotate: false
+  xy: 1709, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+box
+  rotate: false
+  xy: 1706, 2
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1

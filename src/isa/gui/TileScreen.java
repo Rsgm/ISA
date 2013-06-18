@@ -2,140 +2,153 @@ package isa.gui;
 
 import isa.Isa;
 
-public class TileScreen extends GameScreen {
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
-		private BitmapFont		font;
-		private BitmapFont		creditFont;
+public class TileScreen extends IsaScreen {
 
-		private String			login				= "";
-		private final String	userName			= "username' OR 'x'='x";
-		private String			pass				= "";
+	private BitmapFont	font;
 
-		private float			time				= 0f;
-		private int				counter				= 0;									// used to check where in the
-		private int				random;
-		private float			randomTime;
-		private double			alpha				= 0;
-		private int				loginProgress		= 0;
+	private String		text			= "";
+	private String		info			= "On October 26, 2001. Three days after it was drafted,\nthe act has passed and is now being enforced."
+												+ "\nThe majority of it has been kept secret for national security." + "~";
+	private String		quote			= "Locking users out of the inner workings of technology"
+												+ "\nis not merely a marketing decision, it’s a political decision."
+												+ "\nIt keeps the user in the dark about what they’re actually dealing with,"
+												+ "\ndepriving them of the ability to make informed decisions." + "\n     -Julian Oliver";
+	private float		quoteAlpha		= 0;
 
-		private Sprite			loadingsSprite;
-		private Sprite			title;
+	private float		time			= 0f;
+	private int			counter			= 0;
 
-		private Sound			keyClick;													// PLACEHOLDER get a better click sound, lower volume and a
-	// bit more depth
+	private int			random;
+	private float		randomTime;
 
-		private Color			consoleFontColor	= new Color(0.0f, 0.7f, 0.0f, 1.0f);
+	private int			introProgress	= 0;
+
+	private Sprite		act;
+	private Sprite		background;
+	private Sprite		textBox;
 
 	public TileScreen(Isa isa) {
 		super(isa);
 	}
 
-		@Override
-		public void show() {
-	// game.setScreen(new MenuScreen(game)); // uncomment to skip title
+	@Override
+	public void show() {
+		// game.setScreen(new MenuScreen(game)); // uncomment to skip title
 
-			FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("hakd/gui/resources/fonts/whitrabt.ttf"));
-			font = generator.generateFont(16);
-			creditFont = generator.generateFont(14);
-			generator.dispose();
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("isa/gui/resources/fonts/whitrabt.ttf"));
+		font = generator.generateFont(17);
+		generator.dispose();
 
-			font.setColor(0f, 0f, 0f, 0f);
-			creditFont.setColor(0.0f, 1f, 0.0f, 0.18f);
-			random = (int) (Math.random() * 8 + 8); // just your standard pass lengths
-			randomTime = (float) (Math.random() * 1 + .3); // used for the loading circle timeout
+		font.setColor(0f, 0f, 0f, 1f);
 
-			keyClick = Gdx.audio.newSound(Gdx.files.internal("hakd/gui/resources/sounds/KeyClick.ogg"));
-			loadingsSprite = new Sprite(textures.findRegion("loading"));
+		act = new Sprite(textures.findRegion("act hidden"));
+		act.setScale(0.85f, 0.85f);
+		act.setPosition(-50, 0);
 
-			title = new Sprite(textures.findRegion("title"));
-			title.setScale(width / 1600f, height / 900f);
-			title.setPosition(width / 2f - title.getWidth() / 2, height / 1.6f);
+		background = new Sprite(textures.findRegion("cork background"));
+		background.setSize(width, height);
+		background.setPosition(0, 0);
 
-			Gdx.input.setInputProcessor(new TitleInput(game));
+		textBox = new Sprite(textures.findRegion("box"));
+		textBox.setBounds(40, 57, 700, 48);
+		textBox.setColor(1f, 1f, 1f, .75f);
 
-			game.setScreen(new GameScreen(game, "Shadow")); // TODO temporary until I get lua working for the start menu to work
-		}
+// Gdx.input.setInputProcessor(new TitleInput(game));
 
-		@Override
-		public void render(float delta) {
-			super.render(delta);
-			time += delta;
+	}
 
-			batch.begin();
-			title.draw(batch);
-			creditFont.draw(batch, "Created by Ryan Mirman", 2, 14);
+	@Override
+	public void render(float delta) {
+		super.render(delta);
+		time += delta;
 
-			login();
-			batch.end();
-		}
+		batch.begin();
 
-		private void login() {
-			switch (loginProgress) { // basically a timeline of the title screen
-				default:
-					alpha += 0.007;
-					font.setColor(0f, 0.7f, 0f, (float) alpha);
-					login = "Login: ";
-					pass = "Password: ";
+		login(batch, delta);
+		batch.end();
+	}
 
-					if (alpha > 0.99d) {
-						loginProgress++;
-					}
+	private void login(SpriteBatch batch, float delta) {
+		switch (introProgress) { // basically a timeline of the title screen
+			case 0:
+				if (quoteAlpha < 1 && time < 10) {
+					quoteAlpha += 0.002f;
+				} else if (quoteAlpha > 0) {
+					quoteAlpha -= 0.002f;
+				} else {
+					font.setColor(0f, 0f, 0f, 1f);
+					introProgress++;
+					time = 0f;
 					break;
-				case 1:
-					font.setColor(consoleFontColor);
-					if (time % 1 > Math.random() * 0.6 + .03) {
-						keyClick.play(.1f);
+				}
+				font.setColor(1f, 1f, 1f, quoteAlpha);
+				font.drawMultiLine(batch, quote, 70, 320);
 
-						time = 0f;
-						font.setColor(consoleFontColor);
-						login += userName.charAt(counter);
-						counter++;
+				break;
+			case 1:
+				if (time % 1 > Math.random() * 0.4 + .02) {
+					time = 0f;
+					text += info.charAt(counter);
+					counter++;
+				}
+				background.draw(batch);
+				act.translate(.02f, -.38f);
+				act.draw(batch);
+				textBox.draw(batch);
+				font.drawMultiLine(batch, text, 70f, 100f);
 
-					}
+				if (info.charAt(counter) == '~') {
+					introProgress++;
+					counter++;
+					time = 0f;
+				}
+				break;
+			case 2:
+				background.draw(batch);
+				act.translate(.02f, -.38f);
+				act.draw(batch);
+				textBox.draw(batch);
+				font.drawMultiLine(batch, text, 70f, 100f);
 
-					if (counter >= userName.length()) {
-						loginProgress++;
-					}
-					break;
-				case 2:
-					if (time % 1 > Math.random() * 0.6 + .03) {
-						time = 0f;
-						pass += "*";
-						counter++;
+				if (time >= 3.5f) {
+					introProgress++;
+					time = 0f;
+				}
+				break;
+			case 3:
+				background.draw(batch);
+				act.draw(batch);
+				textBox.draw(batch);
+				font.drawMultiLine(batch, text, 70f, 100f);
 
-						keyClick.play(.1f);
-					}
-
-					if (counter >= userName.length() + random) {
-						loginProgress++;
-					}
-					break;
-				case 3:
-					font.setColor(0.4f, 0.7f, 0.4f, 0.4f);
-
-					if (time > 0.8) {
-						loginProgress++;
-					}
-					break;
-				case 4:
-					loadingsSprite.setPosition(width / 2 - 48, height / 2.5f + 48);
-					loadingsSprite.setRotation((time % 1) * -360);
-					loadingsSprite.draw(batch);
-
-					if (time > 2 + randomTime) { // case 4 time + case 5 time
-						game.setScreen(new MenuScreen(game));
-					}
-					break;
-			}
-			font.draw(batch, login, width / 4f, height / 2.5f + 25);
-			font.draw(batch, pass, width / 4f, height / 2.5f);
-		}
-
-		@Override
-		public void dispose() {
-			super.dispose();
-			keyClick.dispose();
+// if () {
+// introProgress++;
+// }
+				break;
+// case 4:
+// font.setColor(0.4f, 0.7f, 0.4f, 0.4f);
+//
+// if (time > 0.8) {
+// introProgress++;
+// }
+// break;
+// case 5:
+//
+// if (time > 2 + randomTime) { // case 4 time + case 5 time
+// game.setScreen(new MenuScreen(game));
+// }
+// break;
 		}
 	}
 
+	@Override
+	public void dispose() {
+		super.dispose();
+	}
 }

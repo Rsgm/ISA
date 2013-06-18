@@ -1,156 +1,100 @@
 package isa.gui;
 
+import isa.Player;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Scaling;
 
-public class GameScreen implements Screen {
-	int					width			= Gdx.graphics.getWidth();
-	int					height			= Gdx.graphics.getHeight();
+public class GameScreen extends IsaScreen {
 
-	Game				game;
+	public GameScreen(Game game, String name) {
+		super(game);
 
-	OrthographicCamera	cam;
-	SpriteBatch			batch			= new SpriteBatch();
-	TextureAtlas		textures		= new TextureAtlas("hakd/gui/resources/textures.txt");
+		GamePlay.generateGame();
+		Network n = NetworkController.addPublicNetwork(NetworkType.PLAYER);
 
-	Rectangle			viewport;
+		player = new Player(name, n, textures, this);
+		room = new Room(player, this);
 
-	Color				fontColor		= new Color(1.0f, 1.0f, 1.0f, 1.0f);
-	// or read from, and write to, a preference or .ini file
+		Sprite sprite = player.getSprite();
+		sprite.setSize(sprite.getWidth() / tileSize, sprite.getHeight() / tileSize);
 
-	static final int	VIRTUAL_WIDTH	= 25;
-	static final int	VIRTUAL_HEIGHT	= 21;
-	static final float	ASPECT_RATIO	= (float) VIRTUAL_WIDTH / (float) VIRTUAL_HEIGHT;
-
-	public GameScreen(Game game) {
-		this.game = game;
-
-		cam = new OrthographicCamera(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
-
-		batch = new SpriteBatch();
-	}
-
-	@Override
-	public void render(float delta) {
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);// update camera
+		cam.setToOrtho(false, room.getFloor().getWidth(), room.getFloor().getHeight());
 		cam.update();
-		cam.apply(Gdx.gl10);
 
-		// set viewport
-		Gdx.gl.glViewport((int) viewport.x, (int) viewport.y, (int) viewport.width, (int) viewport.height);
+		renderer.setView(cam);
 
-		// clear previous frame
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public void resize(int width, int height) { // some how this actually works, I spent way too long on this
-		Vector2 newVirtualRes = new Vector2(0f, 0f);
-		Vector2 crop = new Vector2(width, height);
-
-		newVirtualRes.set(Scaling.fill.apply(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, width, height));
-
-		crop.sub(newVirtualRes);
-		crop.mul(.5f); // not sure why this is deprecated
-
-		viewport = new Rectangle(crop.x, crop.y, newVirtualRes.x, newVirtualRes.y);
-
-		this.width = width;
-		this.height = height;
+		cam.position.x = room.getFloor().getWidth() / 2;
+		cam.position.y = 0;
 	}
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-
+		super.show();
+		Gdx.input.setInputProcessor(new GameInput(game, cam, player, this)); // I guess this has to be set in the show method
 	}
 
 	@Override
-	public void hide() {
-		dispose();
+	public void render(float delta) {
+		super.render(delta);
+		SpriteBatch rBatch = renderer.getSpriteBatch();
+
+		renderer.setView(cam);
+		renderer.render();
+
+		rBatch.begin();
+		if (OPEN_WINDOW == null) {
+			updateMovement();
+			checkPosition(rBatch);
+		}
+
+		// update display();
+		// update game
+		// update other, I don't know
+
+		player.getSprite().draw(rBatch);
+		rBatch.end();
+
+		if (OPEN_WINDOW != null) {
+			OPEN_WINDOW.render(cam, batch, delta);
+		}
+
+		if (MAP_OPEN) {
+			map.render(cam, batch, delta);
+			System.out.println("map");
+		}
 	}
 
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
+	private void checkPosition(SpriteBatch batch) {
+		int x = player.getIsoX();
+		int y = player.getIsoY();
 
-	}
+		Device d = room.getDeviceAtTile(x - 1, y);
 
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
+		if (d == null) {
+			d = room.getDeviceAtTile(x, y - 1);
+		}
 
+		if (d != null) {
+			Sprite s = new Sprite(textures.findRegion("spaceBarIcon"));
+			s.setPosition(player.getSprite().getX(), player.getSprite().getY() + 32 / tileSize);
+			s.setSize(16 / tileSize, 16 / tileSize);
+
+			s.draw(batch);
+
+			if (Gdx.input.isKeyPressed(Keys.SPACE) && OPEN_WINDOW == null) {
+
+				OPEN_WINDOW = d.getTerminal();
+				OPEN_WINDOW.open(textures, this);
+			}
+		}
 	}
 
 	@Override
 	public void dispose() {
-		Gdx.input.setInputProcessor(null);
-		batch.dispose();
-	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public Game getGame() {
-		return game;
-	}
-
-	public void setGame(Game game) {
-		this.game = game;
-	}
-
-	public SpriteBatch getBatch() {
-		return batch;
-	}
-
-	public void setBatch(SpriteBatch batch) {
-		this.batch = batch;
-	}
-
-	public TextureAtlas getTextures() {
-		return textures;
-	}
-
-	public void setTextures(TextureAtlas textures) {
-		this.textures = textures;
-	}
-
-	public Color getFontColor() {
-		return fontColor;
-	}
-
-	public void setFontColor(Color fontColor) {
-		this.fontColor = fontColor;
-	}
-
-	public OrthographicCamera getCam() {
-		return cam;
-	}
-
-	public void setCam(OrthographicCamera cam) {
-		this.cam = cam;
+		super.dispose();
 	}
 }

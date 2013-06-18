@@ -9,8 +9,8 @@ public class Main {
 	private static Preferences	save1;	// I may do saving if I have time
 
 	public static void main(String[] args) {
-		new LwjglApplication(new Isa(), "Hak'd", 800, 600, false);
-		prefs = Gdx.app.getPreferences("hakd-prefs");
+		new LwjglApplication(new Isa(), "ISA: Operation Shapes", 800, 600, false);
+		prefs = Gdx.app.getPreferences("isa-prefs");
 
 // if (!prefs.getBoolean("played-before")) { // TODO uncomment this line
 		newPrefs();
