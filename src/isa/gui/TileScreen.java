@@ -1,7 +1,6 @@
 package isa.gui;
 
-import isa.Isa;
-
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -13,9 +12,9 @@ public class TileScreen extends IsaScreen {
 	private BitmapFont	font;
 
 	private String		text			= "";
-	private String		info			= "On October 26, 2001. Three days after it was drafted,\nthe act has passed and is now being enforced."
+	private String		info			= "On October 26, 2001. 48 hours after it was drafted,\nthe act has passed and is now being enforced."
 												+ "\nThe majority of it has been kept secret for national security." + "~";
-	private String		quote			= "Locking users out of the inner workings of technology"
+	private String		quote			= "Locking users out of the inner workings of technology" // maybe get a new quote
 												+ "\nis not merely a marketing decision, it’s a political decision."
 												+ "\nIt keeps the user in the dark about what they’re actually dealing with,"
 												+ "\ndepriving them of the ability to make informed decisions." + "\n     -Julian Oliver";
@@ -33,8 +32,8 @@ public class TileScreen extends IsaScreen {
 	private Sprite		background;
 	private Sprite		textBox;
 
-	public TileScreen(Isa isa) {
-		super(isa);
+	public TileScreen(Game game) {
+		super(game);
 	}
 
 	@Override
@@ -127,9 +126,9 @@ public class TileScreen extends IsaScreen {
 				textBox.draw(batch);
 				font.drawMultiLine(batch, text, 70f, 100f);
 
-// if () {
-// introProgress++;
-// }
+				if (time > 5) {
+					game.setScreen(new GameScreen(game, "Jacob"));
+				}
 				break;
 // case 4:
 // font.setColor(0.4f, 0.7f, 0.4f, 0.4f);
@@ -145,10 +144,5 @@ public class TileScreen extends IsaScreen {
 // }
 // break;
 		}
-	}
-
-	@Override
-	public void dispose() {
-		super.dispose();
 	}
 }

@@ -1,6 +1,6 @@
 package isa.gui;
 
-import isa.Player;
+import isa.Gameplay;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -9,15 +9,12 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends IsaScreen {
+	// screen sprites
 
 	public GameScreen(Game game, String name) {
 		super(game);
 
-		GamePlay.generateGame();
-		Network n = NetworkController.addPublicNetwork(NetworkType.PLAYER);
-
-		player = new Player(name, n, textures, this);
-		room = new Room(player, this);
+		Gameplay.start();
 
 		Sprite sprite = player.getSprite();
 		sprite.setSize(sprite.getWidth() / tileSize, sprite.getHeight() / tileSize);
