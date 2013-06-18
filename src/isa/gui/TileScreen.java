@@ -38,7 +38,7 @@ public class TileScreen extends IsaScreen {
 
 	@Override
 	public void show() {
-		// game.setScreen(new MenuScreen(game)); // uncomment to skip title
+		game.setScreen(new GameScreen(game));// uncomment to skip title
 
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("isa/gui/resources/fonts/whitrabt.ttf"));
 		font = generator.generateFont(17);
@@ -127,7 +127,7 @@ public class TileScreen extends IsaScreen {
 				font.drawMultiLine(batch, text, 70f, 100f);
 
 				if (time > 5) {
-					game.setScreen(new GameScreen(game, "Jacob"));
+					game.setScreen(new GameScreen(game));
 				}
 				break;
 // case 4:

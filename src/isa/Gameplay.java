@@ -1,7 +1,5 @@
 package isa;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Gameplay {
 	// The game is on a turn per month schedule. You play until the end of each month and stuff happens in between.
@@ -10,11 +8,10 @@ public class Gameplay {
 
 	// You will have a log of phone calls and internet messages. it will have location(international vs citizens), duration, names, and
 
-	public static List<Person>	people	= new ArrayList<Person>();
-	public static List<Log>		logs	= new ArrayList<Log>();
+	public static Round	round;
 
 	public static void start() {
-
+		round = new Round(0);
 	}
 
 }
