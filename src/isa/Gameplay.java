@@ -1,6 +1,5 @@
 package isa;
 
-
 public class Gameplay {
 	// The game is on a turn per month schedule. You play until the end of each month and stuff happens in between.
 	// You make you have a quota of terrorists to "find". You get a few strikes before you are forced to resign and sign an NDA.
@@ -10,8 +9,22 @@ public class Gameplay {
 
 	public static Round	round;
 
+	public static int	month			= 0;
+
+	public static int	suspectedQuota	= 0;
+	public static int	totalSuspected	= 0;
+	public static int	score			= 0;
+
 	public static void start() {
-		round = new Round(0);
+		nextMonth();
+	}
+
+	public static void nextMonth() {
+		month++;
+		round = new Round(month);
+
+		totalSuspected += suspectedQuota;
+		suspectedQuota = 0;
 	}
 
 }

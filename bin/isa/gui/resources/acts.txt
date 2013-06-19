@@ -1,0 +1,18 @@
+acts.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+act hidden
+  rotate: false
+  xy: 2, 2
+  size: 850, 1100
+  orig: 850, 1100
+  offset: 0, 0
+  index: -1
+act
+  rotate: false
+  xy: 854, 2
+  size: 850, 1100
+  orig: 850, 1100
+  offset: 0, 0
+  index: -1

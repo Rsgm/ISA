@@ -18,10 +18,5 @@ public class Round { // acts as the game round
 			people.add(new Person());
 			System.out.println(i);
 		}
-		for (int i = 0; i < logAmount; i++) {
-			logs.add(new Log(people));
-			System.out.println(i);
-		}
-
 	}
 }

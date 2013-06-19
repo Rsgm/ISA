@@ -1,8 +1,16 @@
 package isa;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
+
 public class Person {
-	public double	foreignness;	// in percent
-	public String	name	= "";
+	public double	foreignness;			// in percent
+	public String	name		= "";
+	public boolean	suspected	= false;
+
+	public Sprite	test;
+
+	/* Since you are reading through the code, I will let you in on a little secret, there are no terrorists.
+	 * I could have made a system to pick a few random people to be terrorists that you have to find, but that isn't very critical. ;) */
 
 	public Person() {
 		foreignness = Math.random();
@@ -20,6 +28,10 @@ public class Person {
 				name += (char) ((int) (Math.random() * 26) + 97);
 			}
 		}
+	}
+
+	public void render() {
+
 	}
 
 	int getRandomNumber() {

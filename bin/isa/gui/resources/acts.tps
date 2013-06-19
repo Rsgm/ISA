@@ -22,7 +22,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename>textures.png</filename>
+        <filename>acts.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -54,9 +54,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>8192</int>
+            <int>2048</int>
             <key>height</key>
-            <int>8192</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -99,7 +99,7 @@
             <key>packageName</key>
             <string>Texture</string>
             <key>javaFileName</key>
-            <filename>textures.java</filename>
+            <filename>act.java</filename>
             <key>wrap</key>
             <struct type="AndEngineWrap">
                 <key>s</key>
@@ -111,7 +111,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>textures.txt</filename>
+        <filename>acts.txt</filename>
         <key>mainExtension</key>
         <string></string>
         <key>forceIdenticalLayout</key>
@@ -146,13 +146,8 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>graphics/cork background.png</filename>
-            <filename>graphics/people.png</filename>
-            <filename>graphics/storage.png</filename>
-            <filename>graphics/white.png</filename>
-            <filename>graphics/red.png</filename>
-            <filename>graphics/yellow.png</filename>
-            <filename>graphics/log.png</filename>
+            <filename>graphics/act.png</filename>
+            <filename>graphics/act hidden.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

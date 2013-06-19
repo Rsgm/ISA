@@ -6,7 +6,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 
 public class Main {
 	private static Preferences	prefs;
-	private static Preferences	save1;	// I may do saving if I have time
+	private static Preferences	save1;	// I may do saving if I have logTimer
 
 	public static void main(String[] args) {
 		new LwjglApplication(new Isa(), "ISA: Operation Shapes", 800, 600, false);

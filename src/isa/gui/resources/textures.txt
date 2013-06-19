@@ -2,30 +2,51 @@ textures.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-act hidden
+red
   rotate: false
-  xy: 2, 2
-  size: 850, 1100
-  orig: 850, 1100
+  xy: 296, 2
+  size: 1, 1
+  orig: 1, 1
   offset: 0, 0
   index: -1
-act
+storage
   rotate: false
-  xy: 854, 2
-  size: 850, 1100
-  orig: 850, 1100
+  xy: 299, 2
+  size: 128, 50
+  orig: 128, 50
+  offset: 0, 0
+  index: -1
+people
+  rotate: false
+  xy: 166, 2
+  size: 128, 50
+  orig: 128, 50
   offset: 0, 0
   index: -1
 cork background
   rotate: false
-  xy: 1709, 2
+  xy: 2, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-box
+log
   rotate: false
-  xy: 1706, 2
+  xy: 36, 2
+  size: 128, 50
+  orig: 128, 50
+  offset: 0, 0
+  index: -1
+white
+  rotate: false
+  xy: 429, 2
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+yellow
+  rotate: false
+  xy: 432, 2
   size: 1, 1
   orig: 1, 1
   offset: 0, 0

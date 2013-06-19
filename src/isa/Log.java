@@ -2,12 +2,16 @@ package isa;
 
 import java.util.List;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
+
 public class Log {
 	public Type		type;
 	public Person	person1;
 	public Person	person2;	// person1 and person 2 can be the same, I would say that is suspicious.
 	public int		duration;	// in minutes
 	public int		scaryWords; // i.e. words the filter caught
+
+	public Sprite	test;
 
 	public Log(List<Person> people) {
 		type = Type.values()[(int) Math.random() * type.values().length];
@@ -26,6 +30,10 @@ public class Log {
 		Type(int value) {
 			this.value = value;
 		}
+	}
+
+	public void render() {
 
 	}
+
 }
