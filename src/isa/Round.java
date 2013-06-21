@@ -11,12 +11,11 @@ public class Round { // acts as the game round
 
 	public Round(int month) {
 		int peopleAmount = (int) Math.round(Math.pow(2f, month / 16f) + Math.random() * 5 + 5);
-		int logAmount = (int) Math.round(Math.pow(2f, month / 20f) + Math.random() * 5 + 5);
 		// yes there were only 5 people on the internet in 2001
 
+		System.out.println(peopleAmount);
 		for (int i = 0; i < peopleAmount; i++) {
 			people.add(new Person());
-			System.out.println(i);
 		}
 	}
 }

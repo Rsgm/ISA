@@ -147,12 +147,18 @@
         <key>fileList</key>
         <array>
             <filename>graphics/cork background.png</filename>
-            <filename>graphics/people.png</filename>
-            <filename>graphics/storage.png</filename>
             <filename>graphics/white.png</filename>
             <filename>graphics/red.png</filename>
             <filename>graphics/yellow.png</filename>
             <filename>graphics/log.png</filename>
+            <filename>graphics/people.png</filename>
+            <filename>graphics/storage.png</filename>
+            <filename>graphics/suspect.png</filename>
+            <filename>graphics/10tb.png</filename>
+            <filename>graphics/100tb.png</filename>
+            <filename>graphics/1000tb.png</filename>
+            <filename>graphics/10000tb.png</filename>
+            <filename>graphics/100000tb.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

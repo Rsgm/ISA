@@ -7,7 +7,7 @@ public class Person {
 	public String	name		= "";
 	public boolean	suspected	= false;
 
-	public Sprite	test;
+	public Sprite	suspect;
 
 	/* Since you are reading through the code, I will let you in on a little secret, there are no terrorists.
 	 * I could have made a system to pick a few random people to be terrorists that you have to find, but that isn't very critical. ;) */
@@ -37,5 +37,10 @@ public class Person {
 	int getRandomNumber() {
 		return 4; // chosen by fair dice roll
 					// guaranteed to be random
+	}
+
+	public void suspect() {
+		Gameplay.suspectedQuota--;
+		Gameplay.round.people.remove(this);
 	}
 }

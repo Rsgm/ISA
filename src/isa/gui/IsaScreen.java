@@ -1,5 +1,7 @@
 package isa.gui;
 
+import isa.Gameplay;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -29,6 +31,7 @@ public class IsaScreen implements Screen {
 
 	public IsaScreen(Game game) {
 		this.game = game;
+		Gameplay.screen = this;
 
 		textures.findRegion("white").getTexture().setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 
@@ -52,7 +55,7 @@ public class IsaScreen implements Screen {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public void resize(int width, int height) { // some how this actually works, I spent way too long on this
+	public void resize(int width, int height) {
 		Vector2 newVirtualRes = new Vector2(0f, 0f);
 		Vector2 crop = new Vector2(width, height);
 
