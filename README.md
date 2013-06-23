@@ -3,7 +3,7 @@
 ###Downloads
 [Main Download](http://www.mediafire.com/download/kg90hxdqx0c3ad4/ISA.exe)
 
-[If the main download does not work, use this with the command "java -jar (folder)/ISA.jar" in command prompt or a terminal](http://www.mediafire.com/download/vj127oq5bfjlf12/ISA.jar)
+[If the main download does not work, use this with the command "java -jar [folder]/ISA.jar" in command prompt or a terminal](http://www.mediafire.com/download/vj127oq5bfjlf12/ISA.jar)
 
 ---
 
