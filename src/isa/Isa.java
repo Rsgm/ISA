@@ -4,10 +4,8 @@ import isa.gui.TileScreen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Preferences;
 
 public class Isa extends Game {
-
 	private int		width;
 	private int		height;
 
@@ -16,12 +14,11 @@ public class Isa extends Game {
 
 	@Override
 	public void create() {
-		Preferences prefs = Gdx.app.getPreferences("prefs");
 
-		width = Gdx.graphics.getWidth();
-		height = Gdx.graphics.getHeight();
-		fullscreen = prefs.getBoolean("fullscreen");
-		vsync = prefs.getBoolean("vsync");
+		width = 800;
+		height = 600;
+		fullscreen = false;
+		vsync = true;
 
 		Gdx.graphics.setDisplayMode(width, height, fullscreen);
 		Gdx.graphics.setVSync(vsync); // because no one needs to render 4000 frames per second, but then again it keeps the room warm

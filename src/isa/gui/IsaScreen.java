@@ -25,9 +25,9 @@ public class IsaScreen implements Screen {
 	public TextureAtlas			textures		= new TextureAtlas("isa/gui/resources/textures.txt");
 
 	public Rectangle			viewport;
-	public static final int		VIRTUAL_WIDTH	= 4;
-	public static final int		VIRTUAL_HEIGHT	= 3;
-	public static final float	ASPECT_RATIO	= (float) VIRTUAL_WIDTH / (float) VIRTUAL_HEIGHT;
+	public static final int		WIDTH			= 800;
+	public static final int		HEIGHT	= 600;
+	public static final float	ASPECT_RATIO	= (float) WIDTH / (float) HEIGHT;
 
 	public IsaScreen(Game game) {
 		this.game = game;
@@ -35,7 +35,7 @@ public class IsaScreen implements Screen {
 
 		textures.findRegion("white").getTexture().setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 
-		cam = new OrthographicCamera(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+		cam = new OrthographicCamera(WIDTH, HEIGHT);
 
 		batch = new SpriteBatch();
 	}
@@ -59,7 +59,7 @@ public class IsaScreen implements Screen {
 		Vector2 newVirtualRes = new Vector2(0f, 0f);
 		Vector2 crop = new Vector2(width, height);
 
-		newVirtualRes.set(Scaling.fit.apply(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, width, height));
+		newVirtualRes.set(Scaling.fit.apply(WIDTH, HEIGHT, width, height));
 
 		crop.sub(newVirtualRes);
 		crop.mul(.5f); // not sure why this is deprecated

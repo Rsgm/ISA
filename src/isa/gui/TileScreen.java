@@ -17,17 +17,29 @@ public class TileScreen extends IsaScreen {
 	private String		text			= "";
 	private String		info			= "On October 26, 2001. 48 hours after it was drafted,\nthe act has passed and is now being enforced."
 												+ "\nThe majority of it has been kept secret for national security." + "~";
-	private String		info1			= "Nothing in this game is real, nor has any correlation to any outside events."
+	private String		info1			= "Nothing in this game is real, nor does this have any correlation to any outside events."
 												+ "\nIf you see any resemblance to anything, let me know so I can get that fixed."
 												+ "\nThe last thing I want is for someone to get offended over a simple game."
 												+ "\n\n\n\n[Click to skip]";
+	private String		controls0		= "You are an agent in the ISA looking through data for anything suspicious."
+												+ "\nReport any one who may look suspicious by clicking suspect."
+												+ "\n\nWhat happens to them after that does not matter to you.";
+	private String		controls1		= "Navigate the game by clicking the different tabs,"
+												+ "\nwhich are labeled \"People\", \"Logs\", and \"Storage\"."
+												+ "\n\nYou can scroll through the people and logs with the mouse wheel.";
+	private String		controls2		= "At this facility we have a limited amount of disk space," + "\nwe limit it to 1TB per person."
+												+ "\n\nAs more people start using the Internet and creating more data,"
+												+ "\nyou will need to buy more storage.";
+	private String		controls3		= "Each month you will have a quota of people to suspect,"
+												+ "\nwe make money by suspecting people thus increasing public fear,"
+												+ "\nbut we lose money by not suspecting people."
+												+ "\n\nRemember most of these are good working citizens,"
+												+ "\ncan you live with yourself if you get a good-guy taken away and probably killed, or worse?";
+
 	private float		alpha			= 0;
 
 	private float		time			= 0f;
 	private int			counter			= 0;
-
-	private int			random;
-	private float		randomTime;
 
 	private int			introProgress	= 0;
 
@@ -69,9 +81,6 @@ public class TileScreen extends IsaScreen {
 		eagleSprite = new Sprite(eagle);
 		eagleSprite.setPosition(-120, -205);
 		eagleSprite.setScale(0.5f);
-
-// Gdx.input.setInputProcessor(new TitleInput(game));
-
 	}
 
 	@Override
@@ -116,6 +125,7 @@ public class TileScreen extends IsaScreen {
 					font.setColor(0f, 0f, 0f, 1f); // this is the bug that causes the flickering, I like it, it will stay
 					introProgress++;
 					time = 0f;
+					alpha = 0;
 					break;
 				}
 
@@ -158,23 +168,68 @@ public class TileScreen extends IsaScreen {
 				textBox.draw(batch);
 				font.drawMultiLine(batch, text, 70f, 100f);
 
-				if (time > 5) {
-					game.setScreen(new GameScreen(game));
+				if (time > 2.5) {
+					introProgress++;
+					time = 0f;
 				}
 				break;
-// case 4:
-// font.setColor(0.4f, 0.7f, 0.4f, 0.4f);
-//
-// if (logTimer > 0.8) {
-// introProgress++;
-// }
-// break;
-// case 5:
-//
-// if (logTimer > 2 + randomTime) { // case 4 logTimer + case 5 logTimer
-// game.setScreen(new MenuScreen(game));
-// }
-// break;
+			case 5:
+				if (alpha < 1 && time < 10) {
+					alpha += 0.002f;
+				} else if (alpha > 0) {
+					alpha -= 0.002f;
+				} else {
+					font.setColor(0f, 0f, 0f, 1f);
+					introProgress++;
+					time = 0f;
+					alpha = 0;
+					break;
+				}
+				font.setColor(1f, 1f, 1f, alpha);
+				font.drawMultiLine(batch, controls0, 40, 320);
+				break;
+			case 6:
+				if (alpha < 1 && time < 10) {
+					alpha += 0.002f;
+				} else if (alpha > 0) {
+					alpha -= 0.002f;
+				} else {
+					font.setColor(0f, 0f, 0f, 1f);
+					introProgress++;
+					time = 0f;
+					alpha = 0;
+					break;
+				}
+				font.setColor(1f, 1f, 1f, alpha);
+				font.drawMultiLine(batch, controls1, 40, 320);
+				break;
+			case 7:
+				if (alpha < 1 && time < 10) {
+					alpha += 0.002f;
+				} else if (alpha > 0) {
+					alpha -= 0.002f;
+				} else {
+					font.setColor(0f, 0f, 0f, 1f);
+					introProgress++;
+					time = 0f;
+					alpha = 0;
+					break;
+				}
+				font.setColor(1f, 1f, 1f, alpha);
+				font.drawMultiLine(batch, controls2, 40, 320);
+				break;
+			case 8:
+				if (alpha < 1 && time < 10) {
+					alpha += 0.002f;
+				} else if (alpha > 0) {
+					alpha -= 0.002f;
+				} else {
+					game.setScreen(new GameScreen(game));
+					break;
+				}
+				font.setColor(1f, 1f, 1f, alpha);
+				font.drawMultiLine(batch, controls3, 40, 320);
+				break;
 		}
 	}
 
@@ -182,5 +237,6 @@ public class TileScreen extends IsaScreen {
 	public void dispose() {
 		super.dispose();
 		actTextures.dispose();
+		eagle.dispose();
 	}
 }

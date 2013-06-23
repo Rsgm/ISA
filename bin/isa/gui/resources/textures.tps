@@ -159,6 +159,7 @@
             <filename>graphics/1000tb.png</filename>
             <filename>graphics/10000tb.png</filename>
             <filename>graphics/100000tb.png</filename>
+            <filename>graphics/close.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

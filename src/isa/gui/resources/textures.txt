@@ -37,9 +37,16 @@ people
   orig: 101, 62
   offset: 0, 0
   index: -1
-cork background
+close
   rotate: false
   xy: 105, 130
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+cork background
+  rotate: false
+  xy: 125, 130
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
