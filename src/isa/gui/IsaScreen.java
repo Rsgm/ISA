@@ -5,6 +5,7 @@ import isa.Gameplay;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.backends.openal.Ogg.Music;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
@@ -23,10 +24,11 @@ public class IsaScreen implements Screen {
 	public OrthographicCamera	cam;
 	public SpriteBatch			batch			= new SpriteBatch();
 	public TextureAtlas			textures		= new TextureAtlas("isa/gui/resources/textures.txt");
+	Music						music;
 
 	public Rectangle			viewport;
 	public static final int		WIDTH			= 800;
-	public static final int		HEIGHT	= 600;
+	public static final int		HEIGHT			= 600;
 	public static final float	ASPECT_RATIO	= (float) WIDTH / (float) HEIGHT;
 
 	public IsaScreen(Game game) {
@@ -51,6 +53,13 @@ public class IsaScreen implements Screen {
 
 		// clear previous frame
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+
+		if (music == null || !music.isPlaying()) {
+			System.out.println("new song");
+			music = (Music) Gdx.audio.newMusic(Gdx.files.internal("isa/gui/resources/audio/" + (int) (Math.random() * 16 + 1) + ".ogg"));
+			music.setLooping(false);
+			music.play();
+		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -98,5 +107,7 @@ public class IsaScreen implements Screen {
 		Gdx.input.setInputProcessor(null);
 		batch.dispose();
 		textures.dispose(); // dispose of texture atlases properly! This fixed a very annoying jvm/c crash.
+
+		music.dispose();
 	}
 }

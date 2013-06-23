@@ -66,7 +66,6 @@ public class Person {
 	}
 
 	public void suspect() {
-		System.out.println("suspected");
 		Gameplay.suspectedQuota--;
 		Gameplay.people.remove(this);
 	}

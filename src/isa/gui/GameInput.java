@@ -5,7 +5,6 @@ import isa.Log;
 import isa.Person;
 import isa.gui.GameScreen.Tab;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 
@@ -154,8 +153,6 @@ public class GameInput implements InputProcessor {
 
 	@Override
 	public boolean scrolled(int amount) {
-		int height = Gdx.graphics.getHeight();
-
 		if ((amount == -1) || (amount == 1 && scroll < 100)) {
 			scroll += amount * 25;
 		}
