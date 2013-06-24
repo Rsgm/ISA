@@ -3,11 +3,9 @@ package isa;
 import isa.gui.GameScreen;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Person {
 	public double	foreignness;			// in percent
@@ -27,13 +25,18 @@ public class Person {
 		int l2 = (int) ((Math.random() * 251 + 1) * 2);
 		BufferedReader b;
 		try {
-			b = new BufferedReader(new FileReader("src/isa/gui/resources/names.txt"));
+			InputStream namesFile = Main.class.getResourceAsStream("names.txt");
+			InputStreamReader namesReader = new InputStreamReader(namesFile);
+
+			b = new BufferedReader(namesReader);
 			for (int i = 0; i < l2; i++) {
 				b.readLine();
 			}
 			name += b.readLine() + " ";
 
-			b = new BufferedReader(new FileReader("src/isa/gui/resources/names.txt"));
+			namesFile = Main.class.getResourceAsStream("names.txt");
+			namesReader = new InputStreamReader(namesFile);
+			b = new BufferedReader(namesReader);
 
 			for (int i = 0; i < l1; i++) {
 				b.readLine();
