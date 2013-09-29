@@ -1,9 +1,8 @@
 #ISA: Operation Shapes
 
-###Downloads
-[Main Download](http://www.mediafire.com/download/kg90hxdqx0c3ad4/ISA.exe), I don't thisnk this one works.
-
-[If the main download does not work, use this with the command "java -jar [folder]/ISA.jar" in command prompt or a terminal](http://www.mediafire.com/download/26cn9rbta04hkfu/ISA.jar)
+###Download
+[Download here](http://www.mediafire.com/download/26cn9rbta04hkfu/ISA.jar).  
+Use this with the command "java -jar [folder]/ISA.jar" in command prompt or a terminal, but it should be runnable.
 
 ---
 
