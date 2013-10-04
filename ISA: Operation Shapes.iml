@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://lib/gdx-backend-lwjgl-natives.jar" />
+    <libelement value="file://lib/gdx-backend-lwjgl.jar" />
+    <libelement value="file://lib/gdx-freetype-natives.jar" />
+    <libelement value="file://lib/gdx-freetype.jar" />
+    <libelement value="file://lib/gdx-natives.jar" />
+    <libelement value="file://lib/gdx.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="gdx-backend-lwjgl-natives.jar">
+        <CLASSES>
+          <root url="file://lib/gdx-backend-lwjgl-natives.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gdx-backend-lwjgl.jar">
+        <CLASSES>
+          <root url="file://lib/gdx-backend-lwjgl.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://lib/gdx-backend-lwjgl-sources.jar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gdx-freetype-natives.jar">
+        <CLASSES>
+          <root url="file://lib/gdx-freetype-natives.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gdx-freetype.jar">
+        <CLASSES>
+          <root url="file://lib/gdx-freetype.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://lib/gdx-freetype-sources.jar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gdx-natives.jar">
+        <CLASSES>
+          <root url="file://lib/gdx-natives.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gdx.jar">
+        <CLASSES>
+          <root url="file://lib/gdx.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://lib/gdx-sources.jar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="gdx" level="project" />
+    <orderEntry type="library" name="JaNaG_GUI" level="project" />
+  </component>
+</module>
+

@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="gdx">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-backend-lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-freetype.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-freetype-natives.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-backend-lwjgl-natives.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-natives.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-backend-lwjgl-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-freetype-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx/gdx-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
