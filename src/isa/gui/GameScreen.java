@@ -58,7 +58,7 @@ public class GameScreen extends IsaScreen {
 	@Override
 	public void show() {
 		super.show();
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("isa/gui/resources/fonts/whitrabt.ttf"));
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("resources/fonts/whitrabt.ttf"));
 		font = generator.generateFont(17);
 		error = generator.generateFont(17);
 

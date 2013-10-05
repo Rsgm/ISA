@@ -46,8 +46,8 @@ public class TileScreen extends IsaScreen {
 
 	private int			introProgress	= 0;
 
-	TextureAtlas		actTextures		= new TextureAtlas("isa/gui/resources/acts.txt");
-	Texture				eagle			= new Texture(Gdx.files.internal("isa/gui/resources/graphics/eagle.png"));
+	TextureAtlas		actTextures		= new TextureAtlas("resources/acts.txt");
+	Texture				eagle			= new Texture(Gdx.files.internal("resources/graphics/eagle.png"));
 
 	private Sprite		act;
 	private Sprite		background;
@@ -62,7 +62,7 @@ public class TileScreen extends IsaScreen {
 	public void show() {
 // game.setScreen(new GameScreen(game));// uncomment to skip title
 
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("isa/gui/resources/fonts/whitrabt.ttf"));
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("resources/fonts/whitrabt.ttf"));
 		font = generator.generateFont(17);
 		generator.dispose();
 

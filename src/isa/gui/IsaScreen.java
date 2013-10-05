@@ -22,7 +22,7 @@ public class IsaScreen implements Screen {
 
 	public OrthographicCamera	cam;
 	public SpriteBatch			batch			= new SpriteBatch();
-	public TextureAtlas			textures		= new TextureAtlas("isa/gui/resources/textures.txt");
+	public TextureAtlas			textures		= new TextureAtlas("resources/textures.txt");
 	Music						music;
 
 	public Rectangle			viewport;
@@ -55,7 +55,7 @@ public class IsaScreen implements Screen {
 
 		if (music == null || !music.isPlaying()) {
 			System.out.println("new song");
-			music = (Music) Gdx.audio.newMusic(Gdx.files.internal("isa/gui/resources/audio/" + (int) (Math.random() * 16 + 1) + ".ogg"));
+			music = (Music) Gdx.audio.newMusic(Gdx.files.internal("resources/audio/" + (int) (Math.random() * 16 + 1) + ".ogg"));
 			music.setLooping(false);
 			music.play();
 		}

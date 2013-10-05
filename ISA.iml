@@ -81,6 +81,8 @@
     </orderEntry>
     <orderEntry type="library" name="gdx" level="project" />
     <orderEntry type="library" name="JaNaG_GUI" level="project" />
+    <orderEntry type="library" name="jsyn-beta-16.5.14" level="project" />
+    <orderEntry type="library" name="PMusic" level="project" />
   </component>
 </module>
 
