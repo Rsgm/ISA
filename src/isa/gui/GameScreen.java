@@ -1,11 +1,5 @@
 package isa.gui;
 
-import isa.Gameplay;
-import isa.Log;
-import isa.Person;
-
-import java.util.List;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -13,6 +7,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import isa.Gameplay;
+import isa.Log;
+import isa.Person;
+
+import java.util.List;
 
 public class GameScreen extends IsaScreen {
 	public BitmapFont			font;
@@ -170,10 +169,10 @@ public class GameScreen extends IsaScreen {
 		storageTab.draw(batch, 1);
 
 		font.drawMultiLine(batch,
-				"Terrorists left: " + Gameplay.suspectedQuota + "\nMoney: $" + Gameplay.money + "M\nStorage: "
+				"Terrorists left: " + Gameplay.suspecteQuota + "\nMoney: $" + Gameplay.money + "M\nStorage: "
 						+ (Gameplay.logs.size() + Gameplay.people.size()) + "/" + Gameplay.storage + "TB", width - 200, height - 5);
 
-		text4.drawMultiLine(batch, "Seconds left this month: " + (int) (countdown), width - 320, 17);
+		text4.drawMultiLine(batch, "Time left this month: " + (int) (countdown), width - 320, 17);
 	}
 
 	private void updateGame() {

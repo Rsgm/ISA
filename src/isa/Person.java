@@ -34,7 +34,7 @@ public class Person {
         suspect.draw(batch);
 
         GameScreen.text1.draw(batch, "Name: " + name, 64, offset + 95);
-        GameScreen.text2.draw(batch, "Foreignness: " + citizen + "%", 64, offset + 75);
+        GameScreen.text2.draw(batch, "Citizen: " + citizen, 64, offset + 75);
     }
 
     int getRandomNumber() {
@@ -43,7 +43,7 @@ public class Person {
     }
 
     public void suspect() {
-        Gameplay.suspectedQuota--;
+        Gameplay.suspecteQuota--;
         Gameplay.people.remove(this);
     }
 }

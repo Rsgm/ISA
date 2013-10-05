@@ -1,12 +1,11 @@
 package isa.gui;
 
+import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
 import isa.Gameplay;
 import isa.Log;
 import isa.Person;
 import isa.gui.GameScreen.Tab;
-
-import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.Color;
 
 public class GameInput implements InputProcessor {
 
@@ -19,19 +18,16 @@ public class GameInput implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -135,19 +131,16 @@ public class GameInput implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -156,7 +149,6 @@ public class GameInput implements InputProcessor {
 		if ((amount == -1) || (amount == 1 && scroll < 100)) {
 			scroll += amount * 25;
 		}
-		System.out.println(amount + "	" + scroll);
 		return true;
 	}
 

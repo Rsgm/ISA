@@ -1,7 +1,5 @@
 package isa.gui;
 
-import isa.Gameplay;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -14,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Scaling;
+import isa.Gameplay;
 
 public class IsaScreen implements Screen {
 	public int					width			= Gdx.graphics.getWidth();
@@ -81,7 +80,6 @@ public class IsaScreen implements Screen {
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -92,13 +90,11 @@ public class IsaScreen implements Screen {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 
 	}
 

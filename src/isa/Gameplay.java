@@ -19,7 +19,7 @@ public class Gameplay {
 
 	public static int			month			= 0;
 
-	public static int			suspectedQuota	= 0;
+	public static int suspecteQuota = 0;
 	public static int			totalSuspected	= 0;
 	public static int			score			= 0;
 
@@ -35,13 +35,13 @@ public class Gameplay {
 	public static void nextMonth() {
 		month++;
 
-		if (suspectedQuota <= 0) {
-			money -= 2 * suspectedQuota;
+		if (suspecteQuota <= 0) {
+			money -= 2 * suspecteQuota;
 		} else {
-			money -= suspectedQuota;
+			money -= suspecteQuota;
 		}
 
-		totalSuspected += suspectedQuota;
+		totalSuspected += suspecteQuota;
 
 		((GameScreen) screen).logTimer = 0;
 		((GameScreen) screen).countdown = 60;
@@ -57,7 +57,7 @@ public class Gameplay {
 			people.add(new Person());
 		}
 
-		suspectedQuota = (int) (people.size() * (Math.random() * 0.3 + 0.3));
+		suspecteQuota = (int) (people.size() * (Math.random() * 0.3 + 0.3));
 	}
 
 }
