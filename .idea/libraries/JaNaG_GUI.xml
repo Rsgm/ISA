@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JaNaG_GUI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/JaNaG_GUI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
