@@ -19,70 +19,10 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module-library">
-      <library name="gdx-backend-lwjgl-natives.jar">
-        <CLASSES>
-          <root url="file://lib/gdx-backend-lwjgl-natives.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="gdx-backend-lwjgl.jar">
-        <CLASSES>
-          <root url="file://lib/gdx-backend-lwjgl.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://lib/gdx-backend-lwjgl-sources.jar" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="gdx-freetype-natives.jar">
-        <CLASSES>
-          <root url="file://lib/gdx-freetype-natives.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="gdx-freetype.jar">
-        <CLASSES>
-          <root url="file://lib/gdx-freetype.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://lib/gdx-freetype-sources.jar" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="gdx-natives.jar">
-        <CLASSES>
-          <root url="file://lib/gdx-natives.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="gdx.jar">
-        <CLASSES>
-          <root url="file://lib/gdx.jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://lib/gdx-sources.jar" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="gdx" level="project" />
     <orderEntry type="library" name="JaNaG_GUI" level="project" />
-    <orderEntry type="library" name="jsyn-beta-16.5.14" level="project" />
-    <orderEntry type="library" name="PMusic" level="project" />
+    <orderEntry type="library" name="jna-3.5.2" level="project" />
+    <orderEntry type="library" name="vlcj-2.4.1" level="project" />
   </component>
 </module>
 

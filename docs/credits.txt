@@ -1,3 +1,5 @@
 Thanks to eff for the eagle logo.
 
+Thanks to Cody B. of inkblock.net for letting me use(and distribute, kind of) the USA/NSA video.
+
 I used the procedural auto script from here https://github.com/wibblymat/ld24/blob/master/autotracker.py for all audio.

@@ -14,7 +14,7 @@ public class Names {
             "Romanian", "Albanian", "Bulgarian", "Egyptian", "Marrocan", "Algerian", "Iranian", "Turkey",
             "Afghanian", "Pakistani", "Indian (Hindi)", "Schwarzes Auge RPG"};
 
-    public static String GenerateName(String language, String gender) {
+    public static String GenerateName(String language, String gender) { // these files may need to be referenced with namegenerator.class.getresource
         NameGenerator n = new NameGenerator("/lib/JaNaG_GUI.jar!/de/beimax/janag/languages.txt", "/lib/JaNaG_GUI.jar!/de/beimax/janag/semantics.txt");
 
         if (gender == null) {
@@ -29,7 +29,7 @@ public class Names {
         String s = "";
         do {
             String language;
-            if (Math.random() * 100 >= 70) {
+            if (Math.random() <= 0.7) {
                 language = "U.S. Human (1990)";
             } else {
                 language = Names.languages[(int) (Math.random() * Names.languages.length)];

@@ -1,9 +1,9 @@
 package isa;
 
-import isa.gui.TileScreen;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import isa.gui.Assets;
+import isa.gui.TitleScreen;
 
 public class Isa extends Game {
 	private int		width;
@@ -14,6 +14,7 @@ public class Isa extends Game {
 
 	@Override
 	public void create() {
+        Assets.init();
 
 		width = 800;
 		height = 600;
@@ -23,7 +24,7 @@ public class Isa extends Game {
 		Gdx.graphics.setDisplayMode(width, height, fullscreen);
 		Gdx.graphics.setVSync(vsync); // because no one needs to render 4000 frames per second, but then again it keeps the room warm
 
-		setScreen(new TileScreen(this));
+		setScreen(new TitleScreen(this));
 	}
 
 	public int getWidth() {

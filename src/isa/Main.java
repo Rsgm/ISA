@@ -1,9 +1,13 @@
 package isa;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 public class Main {
     public static void main(String[] args) {
-        		new LwjglApplication(new Isa(), "ISA", 800, 600, false);
+        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+        config.resizable = false;
+        config.title = "ISA";
+        new LwjglApplication(new Isa(), config);
     }
 }
